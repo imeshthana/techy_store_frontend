@@ -923,6 +923,15 @@ body.nav-active {
     position: fixed;
 }
 
+.product-container{
+    width: 100vw;
+    height: 100vh;
+    top: 40rem;
+    left: 0;
+    right: 0;
+    position: fixed;
+}
+
 .product-box{
     display: flex;
     text-align: center;

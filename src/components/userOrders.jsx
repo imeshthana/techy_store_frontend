@@ -5,6 +5,7 @@ const UserOrders = (props) => {
     function handleClick(){
         props.onDelete(props.id);
     }
+    
     return (
     <div className='listItem'>
         <h1>{props.item}</h1>

@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
 import axios from 'axios';
+import cartItems from '../cartData';
 
 const Product = (props) => {
   const [count, setCount] = useState(1);
   const [modal, setModal] = useState(false);
   // const [cartItem, setCartItem] = useState({
-  //   item:'',
-  //   price:'',
+  //   productName:props.productName,
+  //   price:props.price,
   //   count:''
   // })
 
@@ -22,26 +23,38 @@ const Product = (props) => {
     if(count>=2) setCount(count - 1);
   }
 
-  const addToCart = () => {
-    const cartItem = {
-      item: props.productName, 
-      price: props.price,
-      count: count
-    };
+  // const addToCart = () => {
+  //   const cartItem = {
+  //     item: props.productName, 
+  //     price: props.price,
+  //     count: count
+  //   };
 
-    axios
-    .post('http://localhost:3001/api/cartItems/', cartItem)
-    .then(result => {
-      console.log('Item added to cart:', result);
-      alert("Item added to cart")
-    })
-    .catch(error => {
-      console.error('Error adding item to cart:', error);
-      alert("Error adding item to cart")
-    });
+  //   axios
+  //   .post('http://localhost:3001/api/cartItems/', cartItem)
+  //   .then(result => {
+  //     console.log('Item added to cart:', result);
+  //     alert("Item added to cart")
+  //   })
+  //   .catch(error => {
+  //     console.error('Error adding item to cart:', error);
+  //     alert("Error adding item to cart")
+  //   });
 
-    toggleModal();
-    };
+  //   toggleModal();
+  //   };
+
+    function addToCart(event){
+        //props.onAdd(cartItem);
+        event.preventDefault(); //preventing reloading the page when submitting
+        const newItem = {
+          productName:props.productName,
+          price:props.price,
+          count:count
+        }
+        cartItems.push(newItem);
+        toggleModal();
+    }
 
   return (
     <div>

@@ -7,57 +7,57 @@ import "slick-carousel/slick/slick-theme.css"
 import axios from 'axios';
 
 
-  const rightArrowStyles = {
-    position: "absolute",
-    top: "50%",
-    transform: "translate(0, -50%)",
-    right: '-20px',
-    fontSize: "45px",
-    color: "#fff",
-    zIndex: 1,
-    cursor: "pointer",
-    padding:"1rem",
-  };
-  
-  const leftArrowStyles = {
-    position: "absolute",
-    top: "50%",
-    transform: "translate(0, -50%)",
-    left: "-20px",
-    fontSize: "45px",
-    color: "#fff",
-    zIndex: 1,
-    cursor: "pointer",
-    padding:"1rem",
-  };
+const rightArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  right: '-20px',
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer",
+  padding:"1rem",
+};
 
-  const NextArrow = (props) => {
-    const { onClick } = props
-    return (
-      <div onClick={onClick} style={leftArrowStyles}>
-            ❰
-      </div>
-    )
-  }
-  const PrevArrow = (props) => {
-    const { onClick } = props
-    return (
-      <div onClick={onClick} style={rightArrowStyles}>
-        ❱
-      </div>
-    )
-  }
+const leftArrowStyles = {
+  position: "absolute",
+  top: "50%",
+  transform: "translate(0, -50%)",
+  left: "-20px",
+  fontSize: "45px",
+  color: "#fff",
+  zIndex: 1,
+  cursor: "pointer",
+  padding:"1rem",
+};
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  }
+const NextArrow = (props) => {
+  const { onClick } = props
+  return (
+    <div onClick={onClick} style={leftArrowStyles}>
+          ❰
+    </div>
+  )
+}
 
+const PrevArrow = (props) => {
+  const { onClick } = props
+  return (
+    <div onClick={onClick} style={rightArrowStyles}>
+      ❱
+    </div>
+  )
+}
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+}
 
 const Reviews = (props) => {
   const [review, setReview] = useState({

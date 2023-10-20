@@ -4,32 +4,11 @@ import Footer from '../../components/footer'
 import PlaceOrder from '../../components/placeOrder'
 import UserOrders from '../../components/userOrders'
 import axios from 'axios';
+import cartItems from '../../cartData'
 
 const Cart = (props) => {
-  const [itemsList, setItems] = useState([]);
+  const [itemsList, setItems] = useState(cartItems);
   const [totalPrice, setTotalPrice] = useState(0);
-
-  
-  useEffect(() => {
-    axios
-      .get('http://localhost:3001/api/cartItems/all')
-      .then(response => {
-        setItems(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching reviews:', error);
-      });
-  }, []);
-
-  function deleteItem(id) {
-    axios.delete(`http://localhost:3001/api/cartItems/${id}`)
-      .then(response => {
-        setItems(prevItems => prevItems.filter(item => item._id !== id));
-      })
-      .catch(error => {
-        console.error('Error deleting message:', error);
-      });
-  }
 
   const calculateTotalPrice = () => {
     const total = itemsList.reduce((accumulator, currentItem) => {
@@ -37,6 +16,11 @@ const Cart = (props) => {
     }, 0);
     setTotalPrice(total);
   };
+
+  function deleteItem(id) {
+    const updatedCartItems = cartItems.filter((item, index) => index !== id);
+    setItems(updatedCartItems);
+  }
 
   useEffect(() => {
     calculateTotalPrice();
@@ -51,7 +35,7 @@ const Cart = (props) => {
                 <div>
                     <p className='contactSubheadings'>Products</p>
                 </div>
-                {itemsList.map((productItem) => {
+                {/* {itemsList.map((productItem) => {
                   return (
                       <UserOrders 
                           key={productItem._id}
@@ -59,9 +43,21 @@ const Cart = (props) => {
                           item={productItem.item} 
                           price={productItem.price}
                           count={productItem.count}
-                          onDelete={deleteItem}
+                          //onDelete={deleteItem}
                       />
                   );
+                })} */}
+                {itemsList.map((productItem, index)=>{
+                  return(
+                    <UserOrders
+                      key={index}
+                      id={index}
+                      item={productItem.productName}
+                      price={productItem.price}
+                      count={productItem.count}
+                      onDelete={deleteItem}
+                    />
+                  )
                 })}
               </div>
               <div className='form'>
@@ -87,10 +83,25 @@ export default Cart
   //     })
   // }
 
-  // function deleteProduct(id) {
-  //     setProduct(order => {
-  //         return order.filter((productItem, index) => {
-  //             return index !== id;
-  //         })
+
+
+    // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:3001/api/cartItems/all')
+  //     .then(response => {
+  //       setItems(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching items:', error);
+  //     });
+  // }, []);
+
+  // function deleteItem(id) {
+  //   axios.delete(`http://localhost:3001/api/cartItems/${id}`)
+  //     .then(response => {
+  //       setItems(prevItems => prevItems.filter(item => item._id !== id));
+  //     })
+  //     .catch(error => {
+  //       console.error('Error deleting item:', error);
   //     });
   // }
