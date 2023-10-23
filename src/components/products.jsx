@@ -71,7 +71,7 @@ const Products = () => {
 
   useEffect(() => {
     if(computersList){
-      axios.get('http://localhost:3001/api/products/all/computers')
+      axios.get('https://techy-store-app-api.onrender.com/api/products/all/computers')
       .then(response => {
         setComputers(response.data);
       })
@@ -80,7 +80,7 @@ const Products = () => {
       });
     } 
     if(laptopsList){
-      axios.get('http://localhost:3001/api/products/all/laptops')
+      axios.get('https://techy-store-app-api.onrender.com/api/products/all/laptops')
       .then(response => {
         setLaptops(response.data);
       })
@@ -89,7 +89,7 @@ const Products = () => {
       });
     }
     if(phonesList){
-      axios.get('http://localhost:3001/api/products/all/phones')
+      axios.get('https://techy-store-app-api.onrender.com/api/products/all/phones')
       .then(response => {
         setPhones(response.data);
       })

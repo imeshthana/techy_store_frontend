@@ -83,7 +83,7 @@ const Reviews = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/reviews/all')
+      .get('https://techy-store-app-api.onrender.com/api/reviews/all')
       .then(response => {
         setReviews(response.data);
       })
@@ -94,7 +94,7 @@ const Reviews = (props) => {
 
   function sendReview(event) {
     axios
-        .post("http://localhost:3001/api/reviews/", review)
+        .post("https://techy-store-app-api.onrender.com/api/reviews/", review)
         .then((result) => {
             console.log(result);
             setReview({name:'' , reviewBody:''});

@@ -15,7 +15,7 @@ const AdminOrders = () => {
   // }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/orders/all')
+    axios.get('https://techy-store-app-api.onrender.com/api/orders/all')
       .then(response => {
         setOrder(response.data);
       })
@@ -25,7 +25,7 @@ const AdminOrders = () => {
   }, []);
 
   function deleteMessage(id) {
-    axios.delete(`http://localhost:3001/api/orders/${id}`)
+    axios.delete(`https://techy-store-app-api.onrender.com/api/orders/${id}`)
       .then(response => {
         setOrder(prevOrders => prevOrders.filter(order => order._id !== id));
         alert("Order deleted successfully!")

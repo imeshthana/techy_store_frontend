@@ -34,7 +34,8 @@ const ContactUs = (props) => {
     function sendMessage(event) {
     event.preventDefault();
     axios
-        .post("http://localhost:3001/api/messages/", message)
+        //.post("http://localhost:3001/api/messages/", message)
+        .post("https://techy-store-app-api.onrender.com/api/messages/", message)
         .then((result) => {
             console.log(result);
             setMessage({ name: '', email: '', subject: '', messageBody: '' });

@@ -18,7 +18,7 @@ const AdminProducts = () => {
 
   const handleClick = async (category) => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/products/all/${category}`);
+      const response = await axios.get(`https://techy-store-app-api.onrender.com/api/products/all/${category}`);
       setProducts(response.data);
       setCategory(category);
     } catch (error) {
@@ -28,8 +28,8 @@ const AdminProducts = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/products/all/${category}/${id}`);
-      const response = await axios.get(`http://localhost:3001/api/products/all/${category}`);
+      await axios.delete(`https://techy-store-app-api.onrender.com/api/products/all/${category}/${id}`);
+      const response = await axios.get(`https://techy-store-app-api.onrender.com/api/products/all/${category}`);
       alert("Product deleted successfully!")
       setProducts(response.data);
     } catch (error) {

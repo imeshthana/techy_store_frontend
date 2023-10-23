@@ -15,7 +15,7 @@ const AdminReviews = () => {
   // })};
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/reviews/all')
+    axios.get('https://techy-store-app-api.onrender.com/api/reviews/all')
       .then(response => {
         setReview(response.data);
       })
@@ -25,7 +25,7 @@ const AdminReviews = () => {
   }, []);
 
   function deleteReview(id) {
-    axios.delete(`http://localhost:3001/api/reviews/${id}`)
+    axios.delete(`https://techy-store-app-api.onrender.com/api/reviews/${id}`)
       .then(response => {
         setReview(prevReviews => prevReviews.filter(review => review._id !== id));
         alert("Review deleted successfully!")

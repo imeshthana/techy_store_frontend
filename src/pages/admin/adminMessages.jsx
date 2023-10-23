@@ -17,7 +17,7 @@ const AdminMeassages = () => {
   // }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/messages/all')
+    axios.get('https://techy-store-app-api.onrender.com/api/messages/all')
       .then(response => {
         setMessage(response.data);
       })
@@ -27,7 +27,7 @@ const AdminMeassages = () => {
   }, []);
 
   function deleteMessage(id) {
-    axios.delete(`http://localhost:3001/api/messages/${id}`)
+    axios.delete(`https://techy-store-app-api.onrender.com/api/messages/${id}`)
       .then(response => {
         setMessage(prevMessages => prevMessages.filter(message => message._id !== id));
         alert("Message deleted successfully!")

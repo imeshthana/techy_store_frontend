@@ -33,7 +33,7 @@ const PlaceOrder = ({ totalPrice }) => {
   function submitOrder(event) {
     if(!userToken)
     axios
-    .post('http://localhost:3001/api/orders/', order)
+    .post('https://techy-store-app-api.onrender.com/api/orders/', order)
     .then((result) => {
         console.log(result);
         setOrder({

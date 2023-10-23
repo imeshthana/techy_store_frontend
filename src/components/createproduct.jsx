@@ -41,7 +41,8 @@ const CreateProduct = ({product: initialProduct, onSave}) => {
     function submitProduct(event) {
         event.preventDefault();
         axios
-        .post('http://localhost:3001/api/products/',product)
+        //.post('http://localhost:3001/api/products/',product)
+        .post('https://techy-store-app-api.onrender.com/api/products/',product)
         .then((result) => {
             console.log(result);
             setProduct({ productName: '', category: '', price: '', description: '', image:'/images/laptops/asus.jpg' });

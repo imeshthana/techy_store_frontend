@@ -43,7 +43,8 @@ const Landing = () => {
 
     const handleLoginSubmit = (event) => {
         axios
-            .post('http://localhost:3001/api/users/login', user)
+            //.post('http://localhost:3001/api/users/login', user)
+            .post('https://techy-store-app-api.onrender.com/api/users/login', user)
             .then(response => {
                 console.log(response.data);
                 alert('Login successful!');
@@ -71,7 +72,7 @@ const Landing = () => {
     const handleSignupSubmit = (event) => {
         // event.preventDefault();
         axios
-            .post('http://localhost:3001/api/users/', newUser)
+            .post('https://techy-store-app-api.onrender.com/api/users/', newUser)
             .then(response => {
                 console.log(response.data);
                 alert('Sign up succecfully!');
